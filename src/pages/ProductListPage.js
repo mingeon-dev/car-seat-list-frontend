@@ -1,12 +1,11 @@
 import React from 'react';
-import Button from '../components/common/Button';
+import ProductList from '../components/products/ProductList';
 
 const ProductListPage = () => {
   return (
-    <div>
-      Product List
-      <Button>확인</Button>
-    </div>
+    <>
+      <ProductList></ProductList>
+    </>
   );
 };
 
