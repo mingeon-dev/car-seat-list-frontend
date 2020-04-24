@@ -29,22 +29,31 @@ const ProductItemBlock = styled.div`
   }
 `;
 
-const ProductItem = () => {
+const ProductItem = ({ product }) => {
+  const { name, price, country } = product;
   return (
     <ProductItemBlock>
-      <h2>듀얼픽스 i-SIZE</h2>
-      <SubInfo price="1125000" country="Germany"></SubInfo>
+      <h2>{name}</h2>
+      <SubInfo price={price} country={country}></SubInfo>
       <Tags tags={['isofix', 'iSize']}></Tags>
     </ProductItemBlock>
   );
 };
 
-const ProductList = () => {
+const ProductList = ({ products, loading, error }) => {
+  if (error) {
+    return <ProductListBlock>에러가 발생했습니다.</ProductListBlock>;
+  }
+
   return (
     <ProductListBlock>
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
+      {!loading && products && (
+        <div>
+          {products.map((product) => (
+            <ProductItem product={product} key={product._id} />
+          ))}
+        </div>
+      )}
     </ProductListBlock>
   );
 };
