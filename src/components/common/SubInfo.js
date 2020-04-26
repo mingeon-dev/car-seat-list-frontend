@@ -13,10 +13,11 @@ const SubInfoBlock = styled.div`
   }
 `;
 
-const SubInfo = ({ price, country }) => {
+const SubInfo = ({ price, company, country }) => {
   return (
     <SubInfoBlock>
-      <span>{price}</span>
+      <span>{price}원</span>
+      <span>{company}</span>
       <span>{country}</span>
     </SubInfoBlock>
   );
