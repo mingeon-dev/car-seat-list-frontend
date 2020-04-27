@@ -7,8 +7,9 @@ const LIST_PRODUCTS = 'products/LIST_PRODUCTS';
 const LIST_PRODUCTS_SUCCESS = 'products/LIST_PRODUCTS_SUCCESS';
 const LIST_PRODUCTS_FAILURE = 'products/LIST_PRODUCTS_FAILURE';
 
-export const listProducts = createAction(LIST_PRODUCTS, ({ page }) => ({
+export const listProducts = createAction(LIST_PRODUCTS, ({ page, tag }) => ({
   page,
+  tag,
 }));
 
 const listProductsSaga = createRequestSaga(
