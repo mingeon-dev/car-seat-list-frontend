@@ -13,10 +13,10 @@ const ProductListContainer = ({ location }) => {
     loading: loading['products/LIST_PRODUCTS'],
   }));
   useEffect(() => {
-    const { page, tag } = qs.parse(location.search, {
+    const { page, tag, company } = qs.parse(location.search, {
       ignoreQueryPrefix: true,
     });
-    dispatch(listProducts({ page, tag }));
+    dispatch(listProducts({ page, tag, company }));
   }, [dispatch, location.search]);
 
   return <ProductList loading={loading} error={error} products={products} />;
