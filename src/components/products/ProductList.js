@@ -30,11 +30,27 @@ const ProductItemBlock = styled.div`
 `;
 
 const ProductItem = ({ product }) => {
-  const { name, price, company, country, tags } = product;
+  const {
+    name,
+    price,
+    company,
+    country,
+    minAge,
+    maxAge,
+    group,
+    tags,
+  } = product;
   return (
     <ProductItemBlock>
       <h2>{name}</h2>
-      <SubInfo price={price} company={company} country={country}></SubInfo>
+      <SubInfo
+        price={price}
+        company={company}
+        country={country}
+        minAge={minAge}
+        maxAge={maxAge}
+        group={group}
+      ></SubInfo>
       <Tags tags={tags}></Tags>
     </ProductItemBlock>
   );

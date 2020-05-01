@@ -12,16 +12,27 @@ const SubInfoBlock = styled.div`
     padding-right: 0.25rem;
     content: '\\B7';
   }
+
+  .link {
+    display: inline-block;
+    color: ${palette.teal[7]};
+    text-decoration: none;
+    &:hover {
+      color: ${palette.teal[6]};
+    }
+  }
 `;
 
-const SubInfo = ({ price, company, country }) => {
+const SubInfo = ({ price, company, country, minAge, maxAge, group }) => {
   return (
     <SubInfoBlock>
       <span>{price}원</span>
-      <span>
+      <span className="link">
         <Link to={`/?company=${company}`}>{company}</Link>
       </span>
       <span>{country}</span>
+      <span>{group.reduce((acc, cur) => `${acc}/${cur}`)}</span>
+      <span>{`${minAge / 12}~${maxAge / 12}세`}</span>
     </SubInfoBlock>
   );
 };
