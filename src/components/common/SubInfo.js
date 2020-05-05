@@ -32,7 +32,11 @@ const SubInfo = ({ price, company, country, minAge, maxAge, group }) => {
       </span>
       <span>{country}</span>
       <span>{group.reduce((acc, cur) => `${acc}/${cur}`)}</span>
-      <span>{`${minAge / 12}~${maxAge / 12}세`}</span>
+      <span>
+        {minAge > 0 && minAge < 12
+          ? `${minAge}개월~${maxAge / 12}세`
+          : `${minAge / 12}~${maxAge / 12}세`}
+      </span>
     </SubInfoBlock>
   );
 };
