@@ -23,10 +23,9 @@ const SubInfoBlock = styled.div`
   }
 `;
 
-const SubInfo = ({ price, company, country, minAge, maxAge, group }) => {
+const SubInfo = ({ company, country, minAge, maxAge, group }) => {
   return (
     <SubInfoBlock>
-      <span>{price}원</span>
       <span className="link">
         <Link to={`/?company=${company}`}>{company}</Link>
       </span>

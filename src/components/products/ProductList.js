@@ -4,14 +4,15 @@ import Responsive from '../common/Responsive';
 import palette from '../../lib/styles/palette';
 import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
+import Thumbnail from '../common/Thumbnail';
 
 const ProductListBlock = styled(Responsive)`
-  margin-top: 3rem;
+  margin-top: 2rem;
 `;
 
 const ProductItemBlock = styled.div`
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   &:first-child {
     padding-top: 0;
   }
@@ -21,37 +22,53 @@ const ProductItemBlock = styled.div`
 
   h2 {
     font-size: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     margin-top: 0;
     &:hover {
       color: ${palette.gray[6]};
     }
+  }
+
+  .contents {
+    display: flex;
+    align-items: center;
   }
 `;
 
 const ProductItem = ({ product }) => {
   const {
     name,
-    price,
     company,
     country,
     minAge,
     maxAge,
     group,
+    url,
+    urlToImage,
     tags,
   } = product;
   return (
     <ProductItemBlock>
-      <h2>{name}</h2>
-      <SubInfo
-        price={price}
-        company={company}
-        country={country}
-        minAge={minAge}
-        maxAge={maxAge}
-        group={group}
-      ></SubInfo>
-      <Tags tags={tags}></Tags>
+      <h2>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {name}
+        </a>
+      </h2>
+      <div className="contents">
+        {urlToImage && (
+          <Thumbnail url={url} urlToImage={urlToImage}></Thumbnail>
+        )}
+        <div>
+          <SubInfo
+            company={company}
+            country={country}
+            minAge={minAge}
+            maxAge={maxAge}
+            group={group}
+          ></SubInfo>
+          <Tags tags={tags}></Tags>
+        </div>
+      </div>
     </ProductItemBlock>
   );
 };
