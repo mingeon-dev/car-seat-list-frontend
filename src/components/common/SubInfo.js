@@ -4,7 +4,7 @@ import palette from '../../lib/styles/palette';
 import { Link } from 'react-router-dom';
 
 const SubInfoBlock = styled.div`
-  color: ${palette.gray[6]};
+  color: ${palette.gray[7]};
 
   span + span:before {
     color: ${palette.gray[4]};
