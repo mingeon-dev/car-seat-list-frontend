@@ -5,6 +5,7 @@ import palette from '../../lib/styles/palette';
 import SubInfo from '../common/SubInfo';
 import Tags from '../common/Tags';
 import Thumbnail from '../common/Thumbnail';
+import LikeButton from '../common/LikeButton';
 
 const ProductListBlock = styled(Responsive)`
   margin-top: 2rem;
@@ -22,11 +23,16 @@ const ProductItemBlock = styled.div`
 
   h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
-    margin-top: 0;
+    margin: 0;
     &:hover {
       color: ${palette.gray[6]};
     }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
   }
 
   .contents {
@@ -49,11 +55,14 @@ const ProductItem = ({ product }) => {
   } = product;
   return (
     <ProductItemBlock>
-      <h2>
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {name}
-        </a>
-      </h2>
+      <div className="title">
+        <h2>
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {name}
+          </a>
+        </h2>
+        <LikeButton likes={100} />
+      </div>
       <div className="contents">
         {urlToImage && (
           <Thumbnail url={url} urlToImage={urlToImage}></Thumbnail>
