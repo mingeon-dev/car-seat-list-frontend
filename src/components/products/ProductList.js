@@ -44,6 +44,7 @@ const ProductItemBlock = styled.div`
 const ProductItem = ({ product }) => {
   const {
     name,
+    likes,
     company,
     country,
     minAge,
@@ -61,7 +62,7 @@ const ProductItem = ({ product }) => {
             {name}
           </a>
         </h2>
-        <LikeButton likes={100} />
+        <LikeButton likes={likes} />
       </div>
       <div className="contents">
         {urlToImage && (
